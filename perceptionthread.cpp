@@ -31,7 +31,7 @@ void PerceptionThread::run()
         //pool_.updateTrafficLight();
         QList<Obstacle> currentObs = pool_.getObstacles();
 
-        if(currentObs.size() < 1 )
+        if(currentObs.size() < 1 )//限制障碍物1个
         {
             obs_id++;
             VehicleState state = pool_.get();
@@ -39,9 +39,9 @@ void PerceptionThread::run()
             Obstacle obs;
             obs.id = obs_id;
 
-            double farDistance = 10.0 + (rand() % 300) / 10.0;
-            double laterlOffset = (rand() % 80 - 40) / 10.0;
-
+            double farDistance = 10.0 + (rand() % 300) / 10.0;//限制生成距离x
+            double laterlOffset = (rand() % 80 - 40) / 10.0;//限制y
+            //障碍物坐标x，y
             obs.x = state.x + farDistance;
             obs.y = state.y + laterlOffset;
             obs.speed = 0.0;
@@ -52,11 +52,11 @@ void PerceptionThread::run()
                      <<"速度"<<obs.speed<<"m/s"
                      <<" 总个数："<<pool_.getObstacles().size();
         }
-        if(counter %10 == 0)
+        if(counter %10 == 0)//十帧清理障碍物
         {
             pool_.cleanObstacle();
         }
-        if(counter %30 == 0)
+        if(counter %30 == 0)//三十帧感知红绿灯
         {
             Trafficlight currenTl = pool_.getTrafficLight();
             qDebug() <<"[感知]红绿灯状态:" <<currenTl.getStateName();

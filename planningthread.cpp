@@ -56,7 +56,7 @@ void PlanningTherad::run()
 
         ControlCommand cmd;
 
-        if(disTolight <80.0 && tl.state == TrafficlightState::Red)
+        if(disTolight <80.0 && tl.state == TrafficlightState::Red)//检测红绿灯距离
         {
             cmd.targetSpeed = 0.0;
             cmd.targetSteering = 0.0;
