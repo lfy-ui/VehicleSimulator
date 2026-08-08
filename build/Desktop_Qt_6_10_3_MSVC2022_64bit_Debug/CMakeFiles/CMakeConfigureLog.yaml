@@ -1,0 +1,368 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/VS stdio1/VC/Tools/MSVC/14.51.36231/bin/HostX64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36248 for x64
+      版权所有(C) Microsoft Corporation。保留所有权利。
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.51.36248.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        注意: 包含文件:  E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "注意: 包含文件:  "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-5tq0fw"
+      binary: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-5tq0fw"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-5tq0fw'
+        
+        Run Build Command(s): E:/Qt/Tools/CMake_64/bin/cmake.exe -E env VERBOSE=1 jom -f Makefile /nologo cmTC_fd4b5\\fast
+        jom: parallel job execution disabled for Makefile
+        	E:\\Qt\\Tools\\QtCreator\\bin\\jom\\jom.exe  -f CMakeFiles\\cmTC_fd4b5.dir\\build.make /nologo -L CMakeFiles\\cmTC_fd4b5.dir\\build
+        Building CXX object CMakeFiles/cmTC_fd4b5.dir/CMakeCXXCompilerABI.cpp.obj
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_fd4b5.dir\\CMakeCXXCompilerABI.cpp.obj.d --working-dir=E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-5tq0fw --filter-prefix="扅鶓??: ???畱??劘?  " -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe" @C:\\Users\\Administrator\\AppData\\Local\\Temp\\CMakeCXXCompilerABI.cpp.obj.22200.0.jom
+        CMakeCXXCompilerABI.cpp
+        娉ㄦ剰: 鍖呭惈鏂囦欢:  E:\\Qt\\Tools\\CMake_64\\share\\cmake-3.30\\Modules\\CMakeCompilerABI.h
+        Linking CXX executable cmTC_fd4b5.exe
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_fd4b5.dir --rc="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe" --mt="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe" --manifests -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe" /nologo @CMakeFiles\\cmTC_fd4b5.dir\\objects1.rsp @C:\\Users\\Administrator\\AppData\\Local\\Temp\\cmTC_fd4b5.exe.22200.329.jom
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_fd4b5.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_fd4b5.dir/embed.manifest
+        RC Pass 1:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_fd4b5.dir/manifest.res CMakeFiles\\cmTC_fd4b5.dir/manifest.rc
+        LINK Pass 1:
+        D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_fd4b5.dir\\objects1.rsp /out:cmTC_fd4b5.exe /implib:cmTC_fd4b5.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-5tq0fw\\cmTC_fd4b5.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_fd4b5.dir/intermediate.manifest CMakeFiles\\cmTC_fd4b5.dir/manifest.res
+        MT:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_fd4b5.dir/intermediate.manifest /out:CMakeFiles\\cmTC_fd4b5.dir/embed.manifest /notify_update
+        RC Pass 2:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_fd4b5.dir/manifest.res CMakeFiles\\cmTC_fd4b5.dir/manifest.rc
+        FINAL LINK:
+        D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_fd4b5.dir\\objects1.rsp /out:cmTC_fd4b5.exe /implib:cmTC_fd4b5.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-5tq0fw\\cmTC_fd4b5.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_fd4b5.dir/intermediate.manifest CMakeFiles\\cmTC_fd4b5.dir/manifest.res
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': D:/VS stdio1/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "D:/VS stdio1/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.51.36248.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:38 (_qt_internal_find_third_party_dependencies)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:183 (include)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-jir1dn"
+      binary: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-jir1dn"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-jir1dn'
+        
+        Run Build Command(s): E:/Qt/Tools/CMake_64/bin/cmake.exe -E env VERBOSE=1 jom -f Makefile /nologo cmTC_38176\\fast
+        jom: parallel job execution disabled for Makefile
+        	E:\\Qt\\Tools\\QtCreator\\bin\\jom\\jom.exe  -f CMakeFiles\\cmTC_38176.dir\\build.make /nologo -L CMakeFiles\\cmTC_38176.dir\\build
+        Building CXX object CMakeFiles/cmTC_38176.dir/src.cxx.obj
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_38176.dir\\src.cxx.obj.d --working-dir=E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-jir1dn --filter-prefix="扅鶓??: ???畱??劘?  " -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe" @C:\\Users\\Administrator\\AppData\\Local\\Temp\\src.cxx.obj.25108.0.jom
+        src.cxx
+        E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-jir1dn\\src.cxx(1): fatal error C1083: 鏃犳硶鎵撳紑鍖呮嫭鏂囦欢: 鈥減thread.h鈥? No such file or directory
+        jom: E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-jir1dn\\CMakeFiles\\cmTC_38176.dir\\build.make [CMakeFiles\\cmTC_38176.dir\\src.cxx.obj] Error 2
+        jom: E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-jir1dn\\Makefile [cmTC_38176\\fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:38 (_qt_internal_find_third_party_dependencies)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:183 (include)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-0wrxc0"
+      binary: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-0wrxc0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-0wrxc0'
+        
+        Run Build Command(s): E:/Qt/Tools/CMake_64/bin/cmake.exe -E env VERBOSE=1 jom -f Makefile /nologo cmTC_ced5c\\fast
+        jom: parallel job execution disabled for Makefile
+        	E:\\Qt\\Tools\\QtCreator\\bin\\jom\\jom.exe  -f CMakeFiles\\cmTC_ced5c.dir\\build.make /nologo -L CMakeFiles\\cmTC_ced5c.dir\\build
+        Building CXX object CMakeFiles/cmTC_ced5c.dir/CheckFunctionExists.cxx.obj
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_ced5c.dir\\CheckFunctionExists.cxx.obj.d --working-dir=E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-0wrxc0 --filter-prefix="扅鶓??: ???畱??劘?  " -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe" @C:\\Users\\Administrator\\AppData\\Local\\Temp\\CheckFunctionExists.cxx.obj.24636.15.jom
+        CheckFunctionExists.cxx
+        Linking CXX executable cmTC_ced5c.exe
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_ced5c.dir --rc="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe" --mt="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe" --manifests -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe" /nologo @CMakeFiles\\cmTC_ced5c.dir\\objects1.rsp @C:\\Users\\Administrator\\AppData\\Local\\Temp\\cmTC_ced5c.exe.24636.62.jom
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_ced5c.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_ced5c.dir/embed.manifest
+        RC Pass 1:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_ced5c.dir/manifest.res CMakeFiles\\cmTC_ced5c.dir/manifest.rc
+        LINK Pass 1:
+        D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_ced5c.dir\\objects1.rsp /out:cmTC_ced5c.exe /implib:cmTC_ced5c.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-0wrxc0\\cmTC_ced5c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_ced5c.dir/intermediate.manifest CMakeFiles\\cmTC_ced5c.dir/manifest.res
+        LINK Pass 1: command "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_ced5c.dir\\objects1.rsp /out:cmTC_ced5c.exe /implib:cmTC_ced5c.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-0wrxc0\\cmTC_ced5c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_ced5c.dir/intermediate.manifest CMakeFiles\\cmTC_ced5c.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib”
+        jom: E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-0wrxc0\\CMakeFiles\\cmTC_ced5c.dir\\build.make [cmTC_ced5c.exe] Error 2
+        jom: E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-0wrxc0\\Makefile [cmTC_ced5c\\fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:38 (_qt_internal_find_third_party_dependencies)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:183 (include)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-n11ihy"
+      binary: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-n11ihy"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-n11ihy'
+        
+        Run Build Command(s): E:/Qt/Tools/CMake_64/bin/cmake.exe -E env VERBOSE=1 jom -f Makefile /nologo cmTC_68e37\\fast
+        jom: parallel job execution disabled for Makefile
+        	E:\\Qt\\Tools\\QtCreator\\bin\\jom\\jom.exe  -f CMakeFiles\\cmTC_68e37.dir\\build.make /nologo -L CMakeFiles\\cmTC_68e37.dir\\build
+        Building CXX object CMakeFiles/cmTC_68e37.dir/CheckFunctionExists.cxx.obj
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_68e37.dir\\CheckFunctionExists.cxx.obj.d --working-dir=E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-n11ihy --filter-prefix="扅鶓??: ???畱??劘?  " -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe" @C:\\Users\\Administrator\\AppData\\Local\\Temp\\CheckFunctionExists.cxx.obj.22136.0.jom
+        CheckFunctionExists.cxx
+        Linking CXX executable cmTC_68e37.exe
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_68e37.dir --rc="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe" --mt="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe" --manifests -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe" /nologo @CMakeFiles\\cmTC_68e37.dir\\objects1.rsp @C:\\Users\\Administrator\\AppData\\Local\\Temp\\cmTC_68e37.exe.22136.47.jom
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_68e37.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_68e37.dir/embed.manifest
+        RC Pass 1:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_68e37.dir/manifest.res CMakeFiles\\cmTC_68e37.dir/manifest.rc
+        LINK Pass 1:
+        D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_68e37.dir\\objects1.rsp /out:cmTC_68e37.exe /implib:cmTC_68e37.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-n11ihy\\cmTC_68e37.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_68e37.dir/intermediate.manifest CMakeFiles\\cmTC_68e37.dir/manifest.res
+        LINK Pass 1: command "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_68e37.dir\\objects1.rsp /out:cmTC_68e37.exe /implib:cmTC_68e37.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-n11ihy\\cmTC_68e37.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_68e37.dir/intermediate.manifest CMakeFiles\\cmTC_68e37.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: 无法打开文件“pthread.lib”
+        jom: E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-n11ihy\\CMakeFiles\\cmTC_68e37.dir\\build.make [cmTC_68e37.exe] Error 2
+        jom: E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-n11ihy\\Makefile [cmTC_68e37\\fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/FindWrapAtomic.cmake:36 (check_cxx_source_compiles)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:283 (find_package)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake:36 (_qt_internal_find_third_party_dependencies)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:42 (include)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:254 (find_package)"
+      - "E:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:142 (find_dependency)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake:50 (_qt_internal_find_qt_dependencies)"
+      - "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake:40 (include)"
+      - "build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake:235 (find_package)"
+      - "CMakeLists.txt:13 (find_package)"
+    checks:
+      - "Performing Test HAVE_STDATOMIC"
+    directories:
+      source: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-zhwutr"
+      binary: "E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-zhwutr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/Qt/6.10.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "HAVE_STDATOMIC"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/CMakeFiles/CMakeScratch/TryCompile-zhwutr'
+        
+        Run Build Command(s): E:/Qt/Tools/CMake_64/bin/cmake.exe -E env VERBOSE=1 jom -f Makefile /nologo cmTC_c6615\\fast
+        jom: parallel job execution disabled for Makefile
+        	E:\\Qt\\Tools\\QtCreator\\bin\\jom\\jom.exe  -f CMakeFiles\\cmTC_c6615.dir\\build.make /nologo -L CMakeFiles\\cmTC_c6615.dir\\build
+        Building CXX object CMakeFiles/cmTC_c6615.dir/src.cxx.obj
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_c6615.dir\\src.cxx.obj.d --working-dir=E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-zhwutr --filter-prefix="扅鶓??: ???畱??劘?  " -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe" @C:\\Users\\Administrator\\AppData\\Local\\Temp\\src.cxx.obj.4588.0.jom
+        src.cxx
+        娉ㄦ剰: 鍖呭惈鏂囦欢:  D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\atomic
+        娉ㄦ剰: 鍖呭惈鏂囦欢:   D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\yvals.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\yvals_core.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\vcruntime.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:      D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\sal.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:       D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\concurrencysal.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:      D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\vadefs.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\xkeycheck.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\__msvc_doom_core.hpp
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\crtdbg.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\vcruntime_new_debug.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:      D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\vcruntime_new.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\crtdefs.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\use_ansi.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:   D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\cstddef
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\stddef.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\xtr1common
+        娉ㄦ剰: 鍖呭惈鏂囦欢:   D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\cstdint
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\stdint.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:   D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\cstring
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\string.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt_memory.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:      D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt_memcpy_s.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:       D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\errno.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:       D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\vcruntime_string.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt_wstring.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:   D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\xatomic.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\type_traits
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\intrin0.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\intrin0.inl.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:   D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\xthreads.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\__msvc_threads_core.hpp
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\climits
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\limits.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:    D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\xtimec.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:     D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\include\\ctime
+        娉ㄦ剰: 鍖呭惈鏂囦欢:      D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\time.h
+        娉ㄦ剰: 鍖呭惈鏂囦欢:       D:\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt_wtime.h
+        Linking CXX executable cmTC_c6615.exe
+        	E:\\Qt\\Tools\\CMake_64\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_c6615.dir --rc="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe" --mt="D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe" --manifests -- "D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe" /nologo @CMakeFiles\\cmTC_c6615.dir\\objects1.rsp @C:\\Users\\Administrator\\AppData\\Local\\Temp\\cmTC_c6615.exe.4588.94.jom
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_c6615.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_c6615.dir/embed.manifest
+        RC Pass 1:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c6615.dir/manifest.res CMakeFiles\\cmTC_c6615.dir/manifest.rc
+        LINK Pass 1:
+        D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6615.dir\\objects1.rsp /out:cmTC_c6615.exe /implib:cmTC_c6615.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-zhwutr\\cmTC_c6615.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c6615.dir/intermediate.manifest CMakeFiles\\cmTC_c6615.dir/manifest.res
+        MT:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_c6615.dir/intermediate.manifest /out:CMakeFiles\\cmTC_c6615.dir/embed.manifest /notify_update
+        RC Pass 2:
+        D:\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c6615.dir/manifest.res CMakeFiles\\cmTC_c6615.dir/manifest.rc
+        FINAL LINK:
+        D:\\VS stdio1\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6615.dir\\objects1.rsp /out:cmTC_c6615.exe /implib:cmTC_c6615.lib /pdb:E:\\Qtonline\\VehicleSimulatorQQ\\build\\Desktop_Qt_6_10_3_MSVC2022_64bit_Debug\\CMakeFiles\\CMakeScratch\\TryCompile-zhwutr\\cmTC_c6615.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c6615.dir/intermediate.manifest CMakeFiles\\cmTC_c6615.dir/manifest.res
+        
+      exitCode: 0
+...
