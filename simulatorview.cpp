@@ -49,6 +49,54 @@ void SimulatorView::drawRoad()
     bottomLine->setZValue(1);
     roadEdges_.append(topLine);
     roadEdges_.append(bottomLine);
+
+    //drawZebraCrossing(100.0, -30.0);
+    double x = 110.0;
+    double y = 0;
+    double width = 60.0;
+    double length = 12.0;
+    int stripeCount = 8;
+    double stripeWidth = length / stripeCount;
+
+    QGraphicsRectItem* bg = scene_->addRect(
+        x - length/2, y - width/2,
+        length, width,
+        QPen(Qt::darkGray, 1),
+        QBrush(QColor(80, 80, 80))
+        );
+    bg->setZValue(0);
+
+    for (int i = 0; i < stripeCount; i++) {
+        double xPos = x - length/2 + i * stripeWidth + stripeWidth/2;
+        QGraphicsRectItem* stripe = scene_->addRect(
+            xPos - stripeWidth/2 + 0.2, y - width/2 + 0.2,
+            stripeWidth - 0.4, width - 0.4,
+            QPen(Qt::NoPen),
+            QBrush(Qt::white)
+            );
+            stripe->setZValue(1);
+    }
+
+    // 边框
+    QGraphicsLineItem* leftBorder = scene_->addLine(
+        x - length/2, y - width/2,
+        x - length/2, y + width/2,
+        QPen(Qt::black, 1.5)
+        );
+    leftBorder->setZValue(1);
+
+    QGraphicsLineItem* rightBorder = scene_->addLine(
+        x + length/2, y - width/2,
+        x + length/2, y + width/2,
+        QPen(Qt::black, 1.5)
+        );
+    rightBorder->setZValue(1);
+
+    QGraphicsTextItem* label = scene_->addText("🚶 斑马线");
+    label->setPos(x + length/2 + 1, y - 2);
+    label->setScale(0.5);
+    label->setDefaultTextColor(Qt::white);
+    label->setZValue(3);
 }
 
 void SimulatorView::drawDetectionZone(const VehicleState &state)
@@ -196,6 +244,17 @@ void SimulatorView::clearTrafficLight()
     trafficLightItems_.clear();
 }
 
+// void SimulatorView::clearZebra()
+// {
+//     for (QGraphicsItem* item : zebraItems_) {
+//         if (item) {
+//             scene_->removeItem(item);
+//             delete item;
+//         }
+//     }
+//     zebraItems_.clear();
+// }
+
 void SimulatorView::resetView()
 {
     // 删除车辆
@@ -225,6 +284,7 @@ void SimulatorView::resetView()
     clearTrajectory();
     clearZone();
     clearTrafficLight();
+    //clearZebra();
 
     // 重新绘制道路
     drawRoad();

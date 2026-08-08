@@ -6,16 +6,17 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QTextEdit>
+#include <QGroupBox>
+#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGraphicsView>
 #include "shareddatapool.h"
 #include "localizationthread.h"
 #include "perceptionthread.h"
 #include "planningthread.h"
 #include "monitorthread.h"
 #include "simulatorview.h"
-
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
@@ -32,8 +33,6 @@ private slots:
     void onUpdateTimer();
 
 private:
-    Ui::MainWindow *ui;
-
     sharedDatapool *pool_ = nullptr;
     SimulatorView *simulatorView_ = nullptr;
     QTimer *updateTimer_ = nullptr;
@@ -43,7 +42,6 @@ private:
     PlanningTherad *planThread_ = nullptr;
     MonitorThread *monThread_ = nullptr;
 
-    // UI 控件指针
     QPushButton *startBtn_ = nullptr;
     QPushButton *pauseBtn_ = nullptr;
     QPushButton *resetBtn_ = nullptr;
@@ -58,6 +56,7 @@ private:
     bool isRunning_ = false;
 
     void addLog(const QString &msg);
+    void setupUI();
 };
 
 #endif // MAINWINDOW_H

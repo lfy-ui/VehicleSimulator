@@ -8,10 +8,10 @@
 #include <QScrollBar>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+
 {
      //qDebug() << "[MainWindow] 1. 开始构造";
-    ui->setupUi(this);
+    //ui->setupUi(this);
      // qDebug() << "[MainWindow] 2. setupUi 完成";
 
 
@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QTextEdit* logTextEdit = new QTextEdit(this);
     logTextEdit->setReadOnly(true);
-    logTextEdit->setMaximumHeight(150);
+    logTextEdit->setMaximumHeight(200);
 
     rightLayout->addWidget(new QLabel("🚗 车辆状态", this));
     rightLayout->addWidget(statusLabel);
@@ -106,14 +106,24 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    if (isRunning_) {
+    if (updateTimer_) {
+        updateTimer_->stop();
+    }
+    if (pool_) {
         pool_->stopSystem();
+    }
+    //if (isRunning_) {
+        //pool_->stopSystem();
         if (locThread_) { locThread_->wait(); delete locThread_; }
         if (perThread_) { perThread_->wait(); delete perThread_; }
         if (planThread_) { planThread_->wait(); delete planThread_; }
         if (monThread_) { monThread_->wait(); delete monThread_; }
-    }
-    delete ui;
+   // }
+        if (pool_) {
+        delete pool_;
+        pool_ = nullptr;
+}
+    //delete ui;
 }
 
 void MainWindow::onStartClicked()
@@ -153,9 +163,12 @@ void MainWindow::onPauseClicked()
     pauseBtn_->setEnabled(false);
     resetBtn_->setEnabled(true);
     statusLabel_->setText("已暂停");
-
-    updateTimer_->stop();
-    pool_->stopSystem();
+    if (updateTimer_) {
+        updateTimer_->stop();
+    }
+    if (pool_) {
+        pool_->stopSystem();
+    }
 
     if (locThread_) { locThread_->wait(); delete locThread_; locThread_ = nullptr; }
     if (perThread_) { perThread_->wait(); delete perThread_; perThread_ = nullptr; }

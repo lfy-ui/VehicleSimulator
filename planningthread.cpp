@@ -48,7 +48,7 @@ void PlanningTherad::run()
                 if(dist < minDist)
                 {
                     minDist = dist;
-                    //nearestObs = obs;
+
                 }
 
             }
@@ -56,25 +56,23 @@ void PlanningTherad::run()
 
         ControlCommand cmd;
 
-        if(disTolight <80.0 && tl.state == TrafficlightState::Red)//检测红绿灯距离
+        if(disTolight <70.0 && tl.state == TrafficlightState::Red)//检测红绿灯距离
         {
             cmd.targetSpeed = 0.0;
             cmd.targetSteering = 0.0;
             cmd.reason = "红灯停车(距离：" +QString::number(disTolight,'f',1) + "m)";
             isReturning = false;
         }
-        else if(disTolight <85.0 &&tl.state == TrafficlightState::Yellow)
+        else if(disTolight <75.0 &&tl.state == TrafficlightState::Yellow)
         {
-            cmd.targetSpeed = qMin(3.0,state.speed * 0.5);
+            cmd.targetSpeed = 4.0;
             cmd.targetSteering = 0.0;
             cmd.reason = "黄灯减速（距离："+QString::number(disTolight,'f',1) +"m";
             isReturning = false;
         }
         else if(detected)
         {
-            bool isReturning = false;
-            int returnCount = 0;
-            //isAvoiding_ = false;
+
             if(minDist >20.0)
             {
                 cmd.targetSpeed = qMin(8.0,state.speed * 0.8);
@@ -98,6 +96,7 @@ void PlanningTherad::run()
                     double dy = obs.y - state.y;
                     double dist = sqrt(dx * dx + dy * dy);
                     if(dist > 10.0)continue;
+
                     double angle = atan2(dy,dx) - state.yaw;
                     while(angle > M_PI) angle -= 2*M_PI;
                     while(angle < -M_PI) angle += 2*M_PI;
@@ -114,17 +113,8 @@ void PlanningTherad::run()
 
                 if(canleft && canright)
                 {
-                    if(rand() %2 == 0)
-                    {
-                        cmd.targetSteering = 0.6;
-                        cmd.reason = "左转避让";
-                    }else
-                    {
-                        cmd.targetSteering = -0.6;
-                        cmd.reason = "右转避让";
-                    }
-                    cmd.targetSpeed = qMin(8.0,state.speed);
-
+                    cmd.targetSteering = (rand() % 2 == 0) ? 0.6 : -0.6;
+                    cmd.reason = "🔄 避让";
                 }else if(canleft)
                 {
                     cmd.targetSteering = 0.6;

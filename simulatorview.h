@@ -55,6 +55,7 @@ private:
     QList<QGraphicsLineItem*> laneLines_;
     QList<QGraphicsLineItem*> roadEdges_;
     QList<QGraphicsItem*> trafficLightItems_;
+    QList<QGraphicsItem*> zebraItems_;
 
     // 绘制函数
     void drawRoad();
@@ -63,10 +64,12 @@ private:
     void drawTrajectory(const QList<QPointF> &trajectory);
     void drawDetectionZone(const VehicleState &state);
     void drawTrafficlight(const Trafficlight &tl);
+    //void drawZebraCrossing(double x, double y);
     void clearObstacles();
     void clearTrajectory();
     void clearZone();
     void clearTrafficLight();
+    //void clearZebra();
 };
 
 #endif // SIMULATORVIEW_H

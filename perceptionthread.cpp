@@ -24,11 +24,7 @@ void PerceptionThread::run()
     {
         counter++;
 
-       // Trafficlight currentTl = pool_.getTrafficLight();
-        //currentTl.update();
-        //pool_.setTrafficLingt(currentTl);
 
-        //pool_.updateTrafficLight();
         QList<Obstacle> currentObs = pool_.getObstacles();
 
         if(currentObs.size() < 1 )//限制障碍物1个
@@ -39,7 +35,7 @@ void PerceptionThread::run()
             Obstacle obs;
             obs.id = obs_id;
 
-            double farDistance = 10.0 + (rand() % 300) / 10.0;//限制生成距离x
+            double farDistance = 15.0 + (rand() % 300) / 10.0;//限制生成距离x
             double laterlOffset = (rand() % 80 - 40) / 10.0;//限制y
             //障碍物坐标x，y
             obs.x = state.x + farDistance;
@@ -64,7 +60,7 @@ void PerceptionThread::run()
 
         for(int i = 0;i<8 && pool_.isRunning();i++)
         {
-            msleep(30);
+            msleep(100);
         }
 
 
