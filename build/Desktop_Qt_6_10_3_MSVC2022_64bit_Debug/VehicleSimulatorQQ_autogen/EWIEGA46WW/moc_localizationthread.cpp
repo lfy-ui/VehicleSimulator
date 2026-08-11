@@ -38,10 +38,14 @@ template <> constexpr inline auto LocalizationThread::qt_create_metaobjectdata<q
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "LocalizationThread"
+        "LocalizationThread",
+        "finished",
+        ""
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Signal 'finished'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -51,7 +55,7 @@ template <> constexpr inline auto LocalizationThread::qt_create_metaobjectdata<q
             qt_methods, qt_properties, qt_enums);
 }
 Q_CONSTINIT const QMetaObject LocalizationThread::staticMetaObject = { {
-    QMetaObject::SuperData::link<QThread::staticMetaObject>(),
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18LocalizationThreadE_t>.stringdata,
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18LocalizationThreadE_t>.data,
     qt_static_metacall,
@@ -63,10 +67,16 @@ Q_CONSTINIT const QMetaObject LocalizationThread::staticMetaObject = { {
 void LocalizationThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<LocalizationThread *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->finished(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (LocalizationThread::*)()>(_a, &LocalizationThread::finished, 0))
+            return;
+    }
 }
 
 const QMetaObject *LocalizationThread::metaObject() const
@@ -79,12 +89,30 @@ void *LocalizationThread::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18LocalizationThreadE_t>.strings))
         return static_cast<void*>(this);
-    return QThread::qt_metacast(_clname);
+    return QObject::qt_metacast(_clname);
 }
 
 int LocalizationThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QThread::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void LocalizationThread::finished()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP

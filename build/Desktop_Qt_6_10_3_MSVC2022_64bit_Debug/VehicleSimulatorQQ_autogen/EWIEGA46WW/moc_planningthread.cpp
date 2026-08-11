@@ -31,60 +31,88 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
-struct qt_meta_tag_ZN14PlanningTheradE_t {};
+struct qt_meta_tag_ZN14PlanningThreadE_t {};
 } // unnamed namespace
 
-template <> constexpr inline auto PlanningTherad::qt_create_metaobjectdata<qt_meta_tag_ZN14PlanningTheradE_t>()
+template <> constexpr inline auto PlanningThread::qt_create_metaobjectdata<qt_meta_tag_ZN14PlanningThreadE_t>()
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "PlanningTherad"
+        "PlanningThread",
+        "finished",
+        ""
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Signal 'finished'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
     QtMocHelpers::UintData qt_enums {
     };
-    return QtMocHelpers::metaObjectData<PlanningTherad, qt_meta_tag_ZN14PlanningTheradE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+    return QtMocHelpers::metaObjectData<PlanningThread, qt_meta_tag_ZN14PlanningThreadE_t>(QMC::MetaObjectFlag{}, qt_stringData,
             qt_methods, qt_properties, qt_enums);
 }
-Q_CONSTINIT const QMetaObject PlanningTherad::staticMetaObject = { {
-    QMetaObject::SuperData::link<QThread::staticMetaObject>(),
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14PlanningTheradE_t>.stringdata,
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14PlanningTheradE_t>.data,
+Q_CONSTINIT const QMetaObject PlanningThread::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14PlanningThreadE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14PlanningThreadE_t>.data,
     qt_static_metacall,
     nullptr,
-    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN14PlanningTheradE_t>.metaTypes,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN14PlanningThreadE_t>.metaTypes,
     nullptr
 } };
 
-void PlanningTherad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void PlanningThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<PlanningTherad *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
-    (void)_a;
+    auto *_t = static_cast<PlanningThread *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->finished(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (PlanningThread::*)()>(_a, &PlanningThread::finished, 0))
+            return;
+    }
 }
 
-const QMetaObject *PlanningTherad::metaObject() const
+const QMetaObject *PlanningThread::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *PlanningTherad::qt_metacast(const char *_clname)
+void *PlanningThread::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14PlanningTheradE_t>.strings))
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14PlanningThreadE_t>.strings))
         return static_cast<void*>(this);
-    return QThread::qt_metacast(_clname);
+    return QObject::qt_metacast(_clname);
 }
 
-int PlanningTherad::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int PlanningThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QThread::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void PlanningThread::finished()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP

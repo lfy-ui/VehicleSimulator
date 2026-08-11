@@ -29,6 +29,7 @@ E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/Vehi
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/stdbool.h \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/string \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/string_view \
+  D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/thread \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/tuple \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/type_traits \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/unordered_map \

@@ -19,57 +19,50 @@ class SimulatorView : public QGraphicsView
 public:
     explicit SimulatorView(QWidget *parent = nullptr);
 
-    void updateScene(const VehicleState &state,
+    void updateScene(const QList<VehicleState> &vehicles,
                      const QList<Obstacle> &obstacles,
                      const QList<QPointF> &trajectory,
-                     const Trafficlight &trafficlight
-                     );
+                     const Trafficlight &trafficlight,
+                     const Pedestrian &pedestrian);
 
     void resetView();
+    void clearObstacles();
     void drawTrafficLight(const Trafficlight &tl);
-signals:
 
+signals:
     void obstacleDetected(const QString &info);
     void trajectoryGenerated(const QString &info);
 
 private:
     QGraphicsScene *scene_;
-
-    // 车辆
-    QGraphicsRectItem *vehicle_;
-
-    // 障碍物
+    QList<QGraphicsRectItem*> vehicleItems_;
     QList<QGraphicsEllipseItem*> obstacles_;
-
-    // 轨迹
     QList<QGraphicsLineItem*> trajectoryItems_;
-
-    // 状态文字
     QGraphicsTextItem *statusText_;
-
-    // 检测区域
     QList<QGraphicsPathItem*> zoneItems_;
-
-    // 道路元素
     QGraphicsRectItem *road_;
     QList<QGraphicsLineItem*> laneLines_;
     QList<QGraphicsLineItem*> roadEdges_;
     QList<QGraphicsItem*> trafficLightItems_;
     QList<QGraphicsItem*> zebraItems_;
+    QList<QGraphicsItem*> pedestrianItems_;   // 行人元素
+    QList<QGraphicsItem*> parkingItems_;
 
-    // 绘制函数
     void drawRoad();
-    void drawVehicle(const VehicleState &state);
+    void drawSingleRoad(double y, QColor color);
+    void drawVehicles(const QList<VehicleState> &vehicles);
     void drawObstacles(const QList<Obstacle> &obstacles);
     void drawTrajectory(const QList<QPointF> &trajectory);
     void drawDetectionZone(const VehicleState &state);
     void drawTrafficlight(const Trafficlight &tl);
-    //void drawZebraCrossing(double x, double y);
-    void clearObstacles();
+    void drawZebraCrossing(double x, double y);
+    void clearVehicles();
     void clearTrajectory();
     void clearZone();
     void clearTrafficLight();
-    //void clearZebra();
+    void drawPedestrian(const Pedestrian &ped);
+    void clearPedestrian();
+    void drawParkingSlot();
 };
 
 #endif // SIMULATORVIEW_H

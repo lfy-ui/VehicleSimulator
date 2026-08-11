@@ -33,23 +33,38 @@ private slots:
     void onUpdateTimer();
 
 private:
-    sharedDatapool *pool_ = nullptr;
+ sharedDatapool *pool_ = nullptr;
     SimulatorView *simulatorView_ = nullptr;
     QTimer *updateTimer_ = nullptr;
 
-    LocalizationThread *locThread_ = nullptr;
-    PerceptionThread *perThread_ = nullptr;
-    PlanningTherad *planThread_ = nullptr;
+    // 线程指针
+    LocalizationThread *locThread1_ = nullptr;
+    PerceptionThread *perThread1_ = nullptr;
+    PlanningThread *planThread1_ = nullptr;
+
+    LocalizationThread *locThread2_ = nullptr;
+    PerceptionThread *perThread2_ = nullptr;
+    PlanningThread *planThread2_ = nullptr;
+
     MonitorThread *monThread_ = nullptr;
 
+    // UI 控件
     QPushButton *startBtn_ = nullptr;
     QPushButton *pauseBtn_ = nullptr;
     QPushButton *resetBtn_ = nullptr;
     QLabel *statusLabel_ = nullptr;
+
+    // 车辆1 状态
     QLabel *speedLabel_ = nullptr;
     QLabel *yawLabel_ = nullptr;
-    QLabel *obstacleLabel_ = nullptr;
     QLabel *decisionLabel_ = nullptr;
+
+    // 车辆2 状态  ✅ 新增
+    QLabel *speedLabel2_ = nullptr;
+    QLabel *yawLabel2_ = nullptr;
+    QLabel *decisionLabel2_ = nullptr;
+
+    QLabel *obstacleLabel_ = nullptr;
     QTextEdit *logTextEdit_ = nullptr;
     QLabel *stepLabel_ = nullptr;
 
@@ -57,6 +72,7 @@ private:
 
     void addLog(const QString &msg);
     void setupUI();
+    //void setupUI();
 };
 
 #endif // MAINWINDOW_H

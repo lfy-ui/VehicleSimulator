@@ -11,7 +11,6 @@ E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/Vehi
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/cstdlib \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/cstring \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/functional \
-  D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/future \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/initializer_list \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/iterator \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/limits \
@@ -28,6 +27,7 @@ E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/Vehi
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/stdbool.h \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/string \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/string_view \
+  D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/thread \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/tuple \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/type_traits \
   D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/unordered_map \
@@ -63,7 +63,6 @@ E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/Vehi
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/QObject \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/QQueue \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/QString \
-  E:/Qt/6.10.3/msvc2022_64/include/QtCore/QThread \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/QWaitCondition \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/q17memory.h \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/q20functional.h \
@@ -168,7 +167,6 @@ E:/Qtonline/VehicleSimulatorQQ/build/Desktop_Qt_6_10_3_MSVC2022_64bit_Debug/Vehi
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/qtenvironmentvariables.h \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/qtextstream.h \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/qtformat_impl.h \
-  E:/Qt/6.10.3/msvc2022_64/include/QtCore/qthread.h \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/qtmetamacros.h \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/qtnoop.h \
   E:/Qt/6.10.3/msvc2022_64/include/QtCore/qtpreprocessorsupport.h \

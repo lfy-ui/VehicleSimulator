@@ -29,6 +29,7 @@ VehicleSimulatorQQ_autogen/timestamp: \
 	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/stdbool.h \
 	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/string \
 	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/string_view \
+	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/thread \
 	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/tuple \
 	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/type_traits \
 	D:/VS\ stdio1/VC/Tools/MSVC/14.51.36231/include/unordered_map \
@@ -564,5 +565,4 @@ VehicleSimulatorQQ_autogen/timestamp: \
 	E:/Qtonline/VehicleSimulatorQQ/shareddatapool.h \
 	E:/Qtonline/VehicleSimulatorQQ/simulatorview.cpp \
 	E:/Qtonline/VehicleSimulatorQQ/simulatorview.h \
-	E:/Qtonline/VehicleSimulatorQQ/mainwindow.ui \
 	E:/Qt/Tools/CMake_64/bin/cmake.exe
