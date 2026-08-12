@@ -8,7 +8,7 @@ sharedDatapool::sharedDatapool() {
 
     trafficLight_.id = 1;
     trafficLight_.x = 100.0;
-    trafficLight_.y = -30.0;
+    trafficLight_.y = -45.0;
     trafficLight_.state = TrafficlightState::Green;
     trafficLight_.switchInterval = 90;
     trafficLight_.timer = 0;
@@ -24,9 +24,7 @@ sharedDatapool::sharedDatapool() {
     pedestrian_.speed = 0.8;
     pedestrian_.movingRight = true;
 
-    // ============================================================
-    // 【新增】初始化停车位（在车道1外侧，y < -40）
-    // ============================================================
+    //初始化停车位（在车道1外侧，y < -40）
     parkingSlot_.id = 1;
     parkingSlot_.x = 170.0;
     parkingSlot_.y = -40.0;
@@ -221,7 +219,6 @@ ControlCommand sharedDatapool::getControlCommand(int vehicleId) const
     return defaultCmd;
 }
 
-// ===== cleanObstacle =====
 void sharedDatapool::cleanObstacle()
 {
     this->cleanObstacle(1);
@@ -296,9 +293,7 @@ void sharedDatapool::updatePedestrian()
     pedestrian_.x = 110.0;
 }
 
-// ============================================================
-// 【新增】停车位接口实现
-// ============================================================
+//停车位接口实现
 ParkingSlot sharedDatapool::getParkingSlot() const
 {
     QMutexLocker locker(&mtx_);

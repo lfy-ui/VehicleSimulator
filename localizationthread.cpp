@@ -34,7 +34,7 @@ void LocalizationThread::wait()
 
 void LocalizationThread::run()
 {
-    qDebug() << "[定位] 车辆" << vehicleId_ << " 启动（含航向计时归零）";
+    qDebug() << "[定位] 车辆" << vehicleId_ << " 启动（持续转向屏蔽）";
 
     VehicleState state = pool_.getVehicleState(vehicleId_);
     if (state.id != vehicleId_) {
@@ -57,13 +57,16 @@ void LocalizationThread::run()
     const double ROAD_CENTER = (vehicleId_ == 1) ? -20.0 : 20.0;
     const double STEERING_GAIN = 0.25;
 
-    // ============================================================
-    // 航向计时归零相关变量
-    // ============================================================
-    const double YAW_THRESHOLD = 1.47;        // 触发阈值（弧度）
-    const int YAW_TIMER_DURATION = 60;        // 等待帧数（60帧 = 3秒，每帧50ms）
+    // 航向计时归零参数
+    const double YAW_THRESHOLD = 1.47;
+    const int YAW_TIMER_DURATION = 60;
     bool yawTimerActive = false;
     int yawTimerCounter = 0;
+
+    // 持续屏蔽机制
+    bool steeringBlockActive = false;
+    int steeringBlockCounter = 0;
+    const int MAX_BLOCK_FRAMES = 100;
 
     while (running_) {
         cycle++;
@@ -80,20 +83,39 @@ void LocalizationThread::run()
         }
         currentSpeed = qMax(MIN_SPEED, qMin(MAX_SPEED, currentSpeed));
 
-        // 转向控制
-        currentSteering = cmd.targetSteering;
-        if (currentSteering > 0.8) currentSteering = 0.8;
-        if (currentSteering < -0.8) currentSteering = -0.8;
+        //转向控制：如果屏蔽激活，强制转向为 0
+        if (steeringBlockActive) {
+            // 强制转向为 0
+            currentSteering = 0.0;
+            steeringBlockCounter++;
 
-        // 物理更新
+            // 检查条件：如果数据池中的目标转向已经为 0，或者超时，解除屏蔽
+            if (cmd.targetSteering == 0.0 || steeringBlockCounter > MAX_BLOCK_FRAMES) {
+                steeringBlockActive = false;
+                steeringBlockCounter = 0;
+                qDebug() << "[转向屏蔽] 车辆" << vehicleId_
+                         << " 解除转向屏蔽（原因:"
+                         << (cmd.targetSteering == 0.0 ? "目标转向归零" : "超时") << "）";
+                // 解除后，立即读取当前转向指令
+                currentSteering = cmd.targetSteering;
+                if (currentSteering > 0.8) currentSteering = 0.8;
+                if (currentSteering < -0.8) currentSteering = -0.8;
+            }
+        } else {
+            // 正常读取转向指令
+            currentSteering = cmd.targetSteering;
+            if (currentSteering > 0.8) currentSteering = 0.8;
+            if (currentSteering < -0.8) currentSteering = -0.8;
+        }
+
+        // 物理更新（位置）
         state.x += currentSpeed * cos(state.yaw) * 0.1;
         state.y += currentSpeed * sin(state.yaw) * 0.1;
+
+        // 航向更新
         state.yaw += currentSteering * STEERING_GAIN;
 
-        // ============================================================
         // 航向计时归零逻辑
-        // ============================================================
-        // 检查是否达到阈值
         if (!yawTimerActive && fabs(state.yaw) >= YAW_THRESHOLD) {
             yawTimerActive = true;
             yawTimerCounter = 0;
@@ -102,16 +124,23 @@ void LocalizationThread::run()
                      << " 开始计时3秒";
         }
 
-        // 如果计时已激活
         if (yawTimerActive) {
             yawTimerCounter++;
-            // 如果计时到达，强制归零
             if (yawTimerCounter >= YAW_TIMER_DURATION) {
+                // 强制归零
                 state.yaw = 0.0;
+                // 清空当前转向
+                currentSteering = 0.0;
+                // 清空数据池中的转向指令
+                ControlCommand newCmd = pool_.getControlCommand(vehicleId_);
+                newCmd.targetSteering = 0.0;
+                pool_.setControlCommand(newCmd);
+                steeringBlockActive = true;
+                steeringBlockCounter = 0;
                 yawTimerActive = false;
                 yawTimerCounter = 0;
                 qDebug() << "[航向计时] 车辆" << vehicleId_
-                         << " 计时结束，航向强制归零";
+                         << " 计时结束，航向归零，激活转向屏蔽";
             }
         }
 
@@ -128,8 +157,7 @@ void LocalizationThread::run()
 
         pool_.updateVehicleState(state);
 
-        // 打印调试信息（每20帧）
-        if (cycle % 20 == 0) {
+        if (cycle % 60 == 0) {
             qDebug() << "[定位] 车辆" << vehicleId_
                      << " x=" << state.x
                      << " y=" << state.y
@@ -137,6 +165,7 @@ void LocalizationThread::run()
                      << " steering=" << currentSteering
                      << " yaw=" << state.yaw
                      << " 计时:" << (yawTimerActive ? QString::number(yawTimerCounter) : "未激活")
+                     << " 屏蔽:" << (steeringBlockActive ? "激活" : "关闭")
                      << " 半宽:" << halfWidth;
         }
 

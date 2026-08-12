@@ -40,7 +40,7 @@ void PlanningThread::wait()
 
 void PlanningThread::run()
 {
-    qDebug() << "[规划] 车辆" << vehicleId_ << " 启动（避让版）";
+    qDebug() << "[规划] 车辆" << vehicleId_ << " 启动（停车引导方向修复）";
 
     int cycle = 0;
 
@@ -52,6 +52,14 @@ void PlanningThread::run()
             qDebug() << "[规划] 车辆" << vehicleId_ << " 状态无效，等待...";
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
             continue;
+        }
+
+        // 过红绿灯标记
+        if (vehicleId_ == 1 && state.x > 110.0) {
+            if (!passedTrafficLight_) {
+                passedTrafficLight_ = true;
+                qDebug() << "[规划] 车辆1 已过红绿灯";
+            }
         }
 
         // 红绿灯检测
@@ -105,21 +113,77 @@ void PlanningThread::run()
 
         // 停车检测（车辆1专用）
         bool isParking = false;
+        double parkingSpeed = 0.0;
+        double parkingSteering = 0.0;
         if (vehicleId_ == 1) {
             ParkingSlot slot = pool_.getParkingSlot();
             if (parkingActive_) {
                 isParking = true;
+                double ddx = slot.x - state.x;   // 从车辆指向停车位
+                double ddy = slot.y - state.y;
+                double distToSlot = sqrt(ddx*ddx + ddy*ddy);
+                double latError = fabs(state.y - slot.y);
+
+                qDebug() << "[停车引导] 车辆1 距离:" << distToSlot
+                         << " 横向偏差:" << latError
+                         << " 位置:(" << state.x << "," << state.y << ")"
+                         << " 目标:(" << slot.x << "," << slot.y << ")";
+
+                // 如果已经非常接近停车位，停稳
+                if (distToSlot < 2.0 && latError < 1.0) {
+                    parkingSpeed = 0.0;
+                    parkingSteering = 0.0;
+                } else {
+                    //计算目标方向
+                    double targetAngle = atan2(ddy, ddx);
+                    double angleError = targetAngle - state.yaw;
+                    // 归一化到 [-PI, PI]
+                    while (angleError > M_PI) angleError -= 2 * M_PI;
+                    while (angleError < -M_PI) angleError += 2 * M_PI;
+
+                    // 限制角度误差范围，防止过度转向
+                    if (angleError > 1.0) angleError = 1.0;
+                    if (angleError < -1.0) angleError = -1.0;
+
+                    // 转向量 = 角度误差 * 增益
+                    parkingSteering = angleError * 0.8;
+                    parkingSteering = qMax(-0.6, qMin(0.6, parkingSteering));
+
+                    // 速度根据距离和角度误差调整
+                    if (distToSlot > 5.0) {
+                        parkingSpeed = 2.0;
+                    } else {
+                        parkingSpeed = 1.0;
+                    }
+                    // 如果横向偏差大或角度偏差大，降低速度
+                    if (latError > 3.0) parkingSpeed = 1.0;
+                    if (fabs(angleError) > 0.5) parkingSpeed = 0.8;
+                    if (fabs(angleError) > 0.8) parkingSpeed = 0.5;
+
+                    // 防止速度过低
+                    if (parkingSpeed < 0.3) parkingSpeed = 0.3;
+                }
             } else {
-                if (state.x > 150.0) {
-                    double ddx = state.x - slot.x;
-                    double ddy = state.y - slot.y;
+                // 首次检测：x > 130 且 距离 < 20m
+                if (state.x > 130.0) {
+                    double ddx = slot.x - state.x;
+                    double ddy = slot.y - state.y;
                     double distToSlot = sqrt(ddx*ddx + ddy*ddy);
-                    double latError = fabs(state.y - slot.y);
-                    if (distToSlot < 8.0 && latError < 2.0 && !slot.occupied) {
+                    if (distToSlot < 20.0 && !slot.occupied) {
                         isParking = true;
                         parkingActive_ = true;
                         pool_.setParkingSlotOccupied(true);
-                        qDebug() << "[规划] 车辆1 触发停车！距离:" << distToSlot;
+                        qDebug() << "[规划] 车辆1 触发停车引导！距离:" << distToSlot;
+                        // 立即计算一次转向
+                        double targetAngle = atan2(ddy, ddx);
+                        double angleError = targetAngle - state.yaw;
+                        while (angleError > M_PI) angleError -= 2 * M_PI;
+                        while (angleError < -M_PI) angleError += 2 * M_PI;
+                        if (angleError > 1.0) angleError = 1.0;
+                        if (angleError < -1.0) angleError = -1.0;
+                        parkingSteering = angleError * 0.8;
+                        parkingSteering = qMax(-0.6, qMin(0.6, parkingSteering));
+                        parkingSpeed = 2.0;
                     }
                 }
             }
@@ -133,7 +197,7 @@ void PlanningThread::run()
         cmd.reason = "正常行驶";
         cmd.resetYaw = false;
 
-        // 1. 红灯（最高优先级）
+        // 1. 红灯
         if (redLight) {
             cmd.targetSpeed = 0.0;
             cmd.targetSteering = 0.0;
@@ -157,11 +221,14 @@ void PlanningThread::run()
             cmd.targetSteering = 0.0;
             cmd.reason = "🚦 黄灯减速";
         }
-        // 4. 停车
+        // 4. 停车引导
         else if (isParking) {
-            cmd.targetSpeed = 0.0;
-            cmd.targetSteering = 0.0;
-            cmd.reason = "🅿️ 已停稳";
+            cmd.targetSpeed = parkingSpeed;
+            cmd.targetSteering = parkingSteering;
+            cmd.reason = "🅿️ 驶入停车位";
+            if (parkingSpeed == 0.0) {
+                cmd.reason = "🅿️ 已停稳";
+            }
         }
         // 5. 障碍物避让
         else if (obstacleDetected && minDist < SAFE_DISTANCE) {
@@ -170,7 +237,6 @@ void PlanningThread::run()
                 cmd.targetSteering = 0.0;
                 cmd.reason = "🚨 紧急停车（障碍物 " + QString::number(minDist, 'f', 1) + "m）";
             } else {
-                // 强制转向
                 double steeringAmount;
                 if (fabs(minAngle) < 0.05) {
                     steeringAmount = (rand() % 2 == 0) ? 0.6 : -0.6;
@@ -191,7 +257,13 @@ void PlanningThread::run()
             cmd.targetSteering = 0.0;
             cmd.reason = "👀 前方障碍物（" + QString::number(minDist, 'f', 1) + "m）- 提前减速";
         }
-        // 7. 正常行驶
+        // 7. 过红绿灯后直线行驶
+        else if (passedTrafficLight_) {
+            cmd.targetSpeed = 5.0;
+            cmd.targetSteering = 0.0;
+            cmd.reason = "过红绿灯-直线行驶";
+        }
+        // 8. 正常行驶
         else {
             cmd.targetSpeed = 5.0;
             cmd.targetSteering = 0.0;
@@ -200,7 +272,7 @@ void PlanningThread::run()
 
         pool_.setControlCommand(cmd);
 
-        if (cycle % 20 == 0) {
+        if (cycle % 60 == 0) {
             qDebug() << "[规划] 车辆" << vehicleId_
                      << " 决策:" << cmd.reason
                      << " 转向:" << cmd.targetSteering

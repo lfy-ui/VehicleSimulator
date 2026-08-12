@@ -39,9 +39,7 @@ void PerceptionThread::run()
     bool obstacleGenerated = false;
     bool obstaclePassed = false;
     double obstacleX = 0.0;
-    // ============================================================
-    // 【修改】障碍物生成在车辆前方 28~32 米（约30米）
-    // ============================================================
+    //障碍物生成在车辆前方 28~32 米（约30米）
     const double OBS_DIST_MIN =20.0;
     const double OBS_DIST_MAX =25.0;
 

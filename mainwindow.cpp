@@ -197,60 +197,20 @@ void MainWindow::onPauseClicked()
     resetBtn_->setEnabled(true);
     statusLabel_->setText("已暂停");
 
-    if (updateTimer_) {
-        updateTimer_->stop();
-    }
-    if (pool_) {
-        pool_->stopSystem();
-    }
+    if (updateTimer_) {updateTimer_->stop();}
+    if (pool_) {pool_->stopSystem();}
 
-    if (locThread1_) {
-        locThread1_->stop();
-        locThread1_->wait();
-        delete locThread1_;
-        locThread1_ = nullptr;
-    }
-    if (perThread1_) {
-        perThread1_->stop();
-        perThread1_->wait();
-        delete perThread1_;
-        perThread1_ = nullptr;
-    }
-    if (planThread1_) {
-        planThread1_->stop();
-        planThread1_->wait();
-        delete planThread1_;
-        planThread1_ = nullptr;
-    }
+    if (locThread1_) {locThread1_->stop();locThread1_->wait();delete locThread1_;locThread1_ = nullptr;}
+    if (perThread1_) {perThread1_->stop();perThread1_->wait();delete perThread1_;perThread1_ = nullptr;}
+    if (planThread1_) {planThread1_->stop();planThread1_->wait();delete planThread1_;planThread1_ = nullptr;}
 
-    if (locThread2_) {
-        locThread2_->stop();
-        locThread2_->wait();
-        delete locThread2_;
-        locThread2_ = nullptr;
-    }
-    if (perThread2_) {
-        perThread2_->stop();
-        perThread2_->wait();
-        delete perThread2_;
-        perThread2_ = nullptr;
-    }
-    if (planThread2_) {
-        planThread2_->stop();
-        planThread2_->wait();
-        delete planThread2_;
-        planThread2_ = nullptr;
-    }
+    if (locThread2_) {locThread2_->stop();locThread2_->wait();delete locThread2_;locThread2_ = nullptr;}
+    if (perThread2_) {perThread2_->stop();perThread2_->wait();delete perThread2_;perThread2_ = nullptr;}
+    if (planThread2_) {planThread2_->stop();planThread2_->wait();delete planThread2_;planThread2_ = nullptr;}
 
-    if (monThread_) {
-        monThread_->wait();
-        delete monThread_;
-        monThread_ = nullptr;
-    }
+    if (monThread_) {monThread_->wait();delete monThread_;monThread_ = nullptr;}
 
-    if (simulatorView_) {
-        simulatorView_->resetView();
-    }
+    if (simulatorView_) {simulatorView_->resetView();}
 
     addLog("[INFO] ⏸ 双车系统暂停");
 }
@@ -323,7 +283,7 @@ void MainWindow::onUpdateTimer()
 
     static int printCounter = 0;
     printCounter++;
-    if (printCounter % 10 == 0) {
+    if (printCounter % 30 == 0) {
         qDebug() << "[主线程] 红绿灯状态:" << tl.getStateName()
             << " timer:" << tl.timer << "/" << tl.switchInterval;
     }

@@ -59,7 +59,7 @@ private:
     QLabel *yawLabel_ = nullptr;
     QLabel *decisionLabel_ = nullptr;
 
-    // 车辆2 状态  ✅ 新增
+    // 车辆2 状态
     QLabel *speedLabel2_ = nullptr;
     QLabel *yawLabel2_ = nullptr;
     QLabel *decisionLabel2_ = nullptr;

@@ -95,9 +95,7 @@ struct Pedestrian {
     bool movingRight = true;
 };
 
-// ============================================================
-// 【新增】停车位结构
-// ============================================================
+//停车位结构
 struct ParkingSlot {
     int id = 1;
     double x = 0.0;
@@ -142,9 +140,7 @@ public:
     Pedestrian getPedestrian() const;
     void updatePedestrian();
 
-    // ============================================================
-    // 【新增】停车位接口
-    // ============================================================
+    //停车位接口
     ParkingSlot getParkingSlot() const;
     void setParkingSlotOccupied(bool occupied);
 
@@ -159,7 +155,7 @@ private:
     Trafficlight trafficLight_;
     ControlCommand cmd_;
     Pedestrian pedestrian_;
-    ParkingSlot parkingSlot_;   // 停车位
+    ParkingSlot parkingSlot_;
 
     mutable QMutex mtx_;
     QWaitCondition cv_;

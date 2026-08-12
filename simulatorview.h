@@ -45,11 +45,11 @@ private:
     QList<QGraphicsLineItem*> roadEdges_;
     QList<QGraphicsItem*> trafficLightItems_;
     QList<QGraphicsItem*> zebraItems_;
-    QList<QGraphicsItem*> pedestrianItems_;   // 行人元素
+    QList<QGraphicsItem*> pedestrianItems_;
     QList<QGraphicsItem*> parkingItems_;
 
     void drawRoad();
-    void drawSingleRoad(double y, QColor color);
+    void drawSingleRoad(double yCenter, QColor color, double halfWidth);
     void drawVehicles(const QList<VehicleState> &vehicles);
     void drawObstacles(const QList<Obstacle> &obstacles);
     void drawTrajectory(const QList<QPointF> &trajectory);
