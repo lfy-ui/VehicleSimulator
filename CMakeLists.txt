@@ -56,12 +56,10 @@ endif()
 
 target_link_libraries(VehicleSimulatorQQ PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-# ===== ✅ 新增：头文件包含路径 =====
 target_include_directories(VehicleSimulatorQQ PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-# ===== ✅ 新增：多线程支持 =====
 find_package(Threads REQUIRED)
 target_link_libraries(VehicleSimulatorQQ PRIVATE Threads::Threads)
 
