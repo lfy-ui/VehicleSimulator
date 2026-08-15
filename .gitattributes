@@ -1,0 +1,4 @@
+*.cpp linguist-language=C++
+*.h linguist-language=C++
+*.ui linguist-language=QMake
+CMakeLists.txt linguist-language=CMake
